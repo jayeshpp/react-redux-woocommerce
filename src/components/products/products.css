@@ -9,8 +9,12 @@ body {
 }
 
 .container .item {
-    border: 1px solid #f7f7f7;
     margin-bottom: 10px;
+    width: 50%;
+    float: left;
+}
+.container .item {
+    border: 1px solid #f7f7f7;
 }
 
 .container .item img {

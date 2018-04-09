@@ -1,12 +1,8 @@
 import React from 'react';
-import Product from './Product';
-import axios from 'axios';
-import { Cookies } from 'react-cookie';
-import config from "../../config";
+import Product from './Product';    
 import './products.css'
+import Api from "../../auth";
 
-let cookies = new Cookies();
-console.log(process.env)
 class Products extends React.Component {
 
     constructor() {
@@ -16,24 +12,16 @@ class Products extends React.Component {
         };
     }
     
-    componentDidMount() {
-        let getCookie = cookies.get('token');
-        
-        if(getCookie) {
-            let headers = {
-                'Authorization': `Bearer ${getCookie}`, 
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
+    componentWillMount() {
+        this.getData();
+    }
 
-            axios.get(`${config.api_endpoint}/products`, {headers: headers})
-            .then(response => {
-                this.setState({
-                    products: response.data
-                })
+    getData() {
+        Api.get('products', (error, data, response) => {
+            this.setState({
+                products: JSON.parse(response)
             })
-            .catch(error => console.log(error));
-        }
-
+        });
     }
 
     render() {
@@ -41,6 +29,7 @@ class Products extends React.Component {
         if(products === undefined) {
             console.log("Loading...")   
         }
+        
         return (
             products.map(response =>  
                 <div className="item" key={response.id}>

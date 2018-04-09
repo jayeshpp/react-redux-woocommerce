@@ -1,5 +1,4 @@
 import React from 'react';
-import config from "../../config";
 
 class Products extends React.Component {
     
@@ -7,7 +6,7 @@ class Products extends React.Component {
         return (
             <div className="item-inner">
                 <div className="image-wrapper">
-                    <a href={`${config.api_endpoint}/products/${this.props.id}`} title={this.props.title}>
+                    <a href="" title={this.props.title}>
                         <img src={this.props.image} alt={this.props.title}/>
                     </a>
                 </div>
