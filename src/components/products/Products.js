@@ -1,6 +1,7 @@
 import React from 'react';
 import Product from './Product';    
-import './products.css'
+import styles from "./products.scss";
+import commoncss from '../layout/common.scss';
 import Api from "../../auth";
 
 class Products extends React.Component {
@@ -31,11 +32,14 @@ class Products extends React.Component {
         }
         
         return (
-            products.map(response =>  
-                <div className="item" key={response.id}>
+            <div className={styles.container}>
+            {products.map(response =>  
+                <div className={styles.item} key={response.id}>
                     <Product id={response.id} title={response.name} price={response.price} image={response.images[0].src}/>
                 </div>
-            )
+            )}
+            <i className={commoncss.clearfix}></i>
+            </div>
         )
     }
 

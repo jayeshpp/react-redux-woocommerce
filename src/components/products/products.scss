@@ -1,0 +1,49 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    max-width: 480px;
+    margin: auto;
+    padding: 10px 5px;
+    composes: font-family from "../layout/settings.scss";
+    
+    .item {
+        margin-bottom: 10px;
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        padding: 0px 5px;
+        font-size: 13px;
+        
+        .item-inner {
+            border: 1px solid #f7f7f7;
+            width: 100%;
+        }
+
+        .image-wrapper {
+            color: black;
+        }
+        
+        img {
+            display: block;
+            margin: auto;
+            max-width: 100%;    
+        }
+        
+        .descriptions {
+            padding: 10px;
+            
+            .title {
+                text-align: left;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            .price-block {
+                text-align: left;
+            }
+        }
+    }
+}

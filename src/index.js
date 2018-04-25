@@ -7,7 +7,7 @@ import Products from './components/products/Products';
 
 const Root = () => {
     return(
-        <div className="container">
+        <div className="root">
             <Router history={browserHistory}>
                 <Route path="/" component={Products}/>
             </Router>
